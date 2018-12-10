@@ -2,6 +2,6 @@
 #lever dit script niet op
 
 import defaultlogger
+import toolinputs
 
-def test(evidenceid):
-    print(evidenceid)
+toolinputs.os_choice_input()

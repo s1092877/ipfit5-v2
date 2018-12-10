@@ -1,7 +1,7 @@
 import logging #importeert logging, een library die benodigd is om een logger object aan te maken en deze te configureren
 
 def loggerconfig(evidenceid): ##maakt een def aan om de logger te initialiseren
-    logging.basicConfig(filename=evidenceid + ".csv", filemode="a", format="%(levelname)s;%(asctime)s;%(message)s", level="INFO")
+    logging.basicConfig(filename="logs/" + evidenceid + ".csv", filemode="a", format="%(levelname)s;%(asctime)s;%(message)s", level="DEBUG")
     #bovenstaande regel is zeer lang; deze regel geeft aan waar de logging output opgeslagen dient te worden
     #filename is het evidence ID zoals opgegeven aan het begin van de primaire functie, opgeslagen als CSV
     #filemode is a voor append; dit betekent dat iedere keer dat basicConfig voor een bestand aangeroepen wordt, deze niet leeg gemaakt wordt
