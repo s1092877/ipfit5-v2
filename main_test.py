@@ -3,8 +3,5 @@
 
 import defaultlogger
 
-global evidenceid
-evidenceid = str(input("test"))
-
-defaultlogger.loggerconfig(evidenceid)
-defaultlogger.logging.info("schurft")
+def test(evidenceid):
+    print(evidenceid)
