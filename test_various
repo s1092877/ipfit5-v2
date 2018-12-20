@@ -1,0 +1,2 @@
+shitint = input("Voer een string in die eigenlijk een int is")
+shitint = str

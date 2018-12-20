@@ -72,13 +72,15 @@ def carve_input():
         
 def image_input_station():
     ifile = input(str("Voer alstublieft de locatie van de USB stick in. "))
-    return ifile
-
     if ifile == "exit":
         defaultlogger.logging.info("De tool werd voortijdig afgesloten.")
         sys.exit()
+    return ifile
 
 
 def image_input_blocksize():
     bsize = input(str(("voer de blocksize in: ")))
+    if bsize == "exit":
+        defaultlogger.logging.info("De tool werd voortijdig afgesloten.")
+        sys.exit()
     return bsize

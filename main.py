@@ -19,6 +19,9 @@ if ostype == "Linux":
 if not os.path.exists("logs"): #controleer of logs directory al bestaat
     os.makedirs("logs") #maak indien nodig een directory aan voor logs
 
+if not os.path.exists("images"): #controleer of logs directory al bestaat
+    os.makedirs("images") #maak indien nodig een directory aan voor logs
+
 
 
 
