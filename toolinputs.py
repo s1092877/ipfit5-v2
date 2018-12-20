@@ -70,22 +70,15 @@ def carve_input():
         print("Voer alstublieft een geldige bestandslocatie in.")
         carve_input()
         
-def image_input():
-    ifilename = input("Voer alstublieft de locatie van uw image in. ")
-    if ifilename == "exit":
+def image_input_station():
+    ifile = input(str("Voer alstublieft de locatie van de USB stick in. "))
+    return ifile
+
+    if ifile == "exit":
         defaultlogger.logging.info("De tool werd voortijdig afgesloten.")
         sys.exit()
-    if os.path.isfile(ifilename):
-        print("Je hebt de image " + ifilename + " gekozen. Voer Y in als dit klopt.")
-        confirm_choice = str(input(""))
-        if confirm_choice == "Y" or confirm_choice == "y":
-            defaultlogger.logging.info("De image " + ifilename + " is gekozen om te carven.")
-            return ifilename
-        elif confirm_choice == "exit":
-            defaultlogger.logging.info("De tool werd voortijdig afgesloten.")
-            sys.exit()
-        else:
-            image_input()
-    else:
-        print("Voer alstublieft een geldige bestandslocatie in.")
-        image_input()
+
+
+def image_input_blocksize():
+    bsize = input(str(("voer de blocksize in: ")))
+    return bsize
