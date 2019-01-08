@@ -5,6 +5,15 @@ import defaultlogger
 import toolinputs
 import os
 import ddimage
+import hashing_test_sha.py
 
 evidenceid = "3"
-ddimage.imager(evidenceid)
+ifile = ddimage.imager(evidenceid)
+mfile = "images/" + evidenceid + ".raw"
+
+hashtest = hashing_test_sha.hasher(ifile,mfile)
+
+if hashtest is True:
+    print("de hashes kloppen")
+elif hashtest is False:
+    print("de hashes kloppen niet :(")
