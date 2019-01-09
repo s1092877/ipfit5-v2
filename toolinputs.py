@@ -9,11 +9,11 @@ import platform
 
 def evidenceid_input(): #deze def maakt het evidence id aan en logt dit meteen weg
     evidenceid = input(str("Voer het evidence ID van de USB-stick in. "))
-    if evidenceid == "exit":
+    if evidenceid == "exit": #exit het programma indien ''exit'' wordt ingevoerd
         sys.exit()
-    defaultlogger.loggerconfig(evidenceid)
-    defaultlogger.logging.info("Evidence ID " + evidenceid + " is ingevoerd en de tool is gestart.")
-    return evidenceid
+    defaultlogger.loggerconfig(evidenceid) #maakt een logger object aan
+    defaultlogger.logging.info("Evidence ID " + evidenceid + " is ingevoerd en de tool is gestart.") #logt het inputten van het evidence id
+    return evidenceid #return evidenceid zodat dit gebruikt kan worden in andere functies
 
 def detectos():
     ostype = platform.system()
@@ -50,27 +50,27 @@ def detectos():
 ##        print("Voer alstublieft een getal in.")
 ##        return os_choice_input() #keer terug naar os_choice
 
-def carve_input():
-    cfilename = input("Voer alstublieft de locatie van uw image in. ")
-    if cfilename == "exit":
+def carve_input(): #creeër een def om de input voor het te carven bestand af te handelen
+    cfilename = input("Voer alstublieft de locatie van uw image in. ") #vraag om de locatie van het carve bestand
+    if cfilename == "exit": #exit routine zoals hierboven
         defaultlogger.logging.info("De tool werd voortijdig afgesloten.")
         sys.exit()
-    if os.path.isfile(cfilename):
-        print("Je hebt de image " + cfilename + " gekozen. Voer Y in als dit klopt.")
-        confirm_choice = str(input(""))
+    if os.path.isfile(cfilename): #controleer of de input ook daadwerkelijk een bestand is
+        print("Je hebt de image " + cfilename + " gekozen. Voer Y in als dit klopt.") #vraag om bevestiging
+        confirm_choice = str(input("")) #maak van de bevestiging een variabele zodat hier dingen mee gedaan kunnen worden
         if confirm_choice == "Y" or confirm_choice == "y":
             defaultlogger.logging.info("De image " + cfilename + " is gekozen om te carven.")
-            return cfilename
-        elif confirm_choice == "exit":
+            return cfilename #als de bevestiging positief is: return cfilename
+        elif confirm_choice == "exit": #exit routine
             defaultlogger.logging.info("De tool werd voortijdig afgesloten.")
             sys.exit()
         else:
-            carve_input()
+            carve_input() #als de bevestiging iets anders is dan Y or y, start opnieuw met de input
     else:
         print("Voer alstublieft een geldige bestandslocatie in.")
-        carve_input()
+        carve_input() #start opnieuw met de input als er geen geldig bestand is ingevoerd
         
-def image_input_station():
+def image_input_station(): #maak een def aan om het usb-station van de te imagen usb-stick in te voeren
     ifile = input(str("Voer alstublieft de locatie van de USB stick in. "))
     if ifile == "exit":
         defaultlogger.logging.info("De tool werd voortijdig afgesloten.")
