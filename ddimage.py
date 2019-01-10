@@ -9,7 +9,7 @@ def imager(evidenceid):
     cmd = subprocess.call(['dd', 'if=' + ifile, 'of=images/' + "image" + evidenceid + '.raw'])
     progress = cmd.stdout.readline()
     print(progress)
-    defaultlogger.logging.info("het pad van de geimagede usb stick is " + ifile + ", locatie en naam van image is" + ("image" + evidenceid) + "met blocksize van" + bsize)
+    defaultlogger.logging.info("het pad van de geimagede usb stick is " + ifile + ", locatie en naam van image is" + ("image" + evidenceid))
     return ifile
 
 
