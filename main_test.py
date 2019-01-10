@@ -36,7 +36,7 @@ try:
     ifile = toolinputs.image_input_station()
     image = ddimage.imager(evidenceid,ifile)
     hashing_test_sha.hasher(ifile,image)
-    carve = foremostcarverlinux().carve
+    carve = foremostcarverlinux.carve()
 
 except KeyboardInterrupt:
     defaultlogger.logging.info("De tool werd voortijdig afgesloten.")
