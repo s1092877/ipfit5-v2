@@ -24,11 +24,8 @@ if not os.path.exists("images"): #controleer of logs directory al bestaat
 
 
 
-
 print("IPFIT5 tool") #naam tool
 print("Maarten Liang & Danilo di Summa") #naam groepsleden
 print("Deze tool kan op ieder moment afgesloten worden door 'exit' in te voeren.")
 
 evidenceid = toolinputs.evidenceid_input() #roept toolinputs aan om het evidence ID in te voeren.
-
-os_selection = toolinputs.os_choice_input() #roept toolinputs aan om een OS te selecteren

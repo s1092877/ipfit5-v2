@@ -9,8 +9,6 @@ import platform
 
 def evidenceid_input(): #deze def maakt het evidence id aan en logt dit meteen weg
     evidenceid = input(str("Voer het evidence ID van de USB-stick in. "))
-    if evidenceid == "exit": #exit het programma indien ''exit'' wordt ingevoerd
-        sys.exit()
     defaultlogger.loggerconfig(evidenceid) #maakt een logger object aan
     defaultlogger.logging.info("Evidence ID " + evidenceid + " is ingevoerd en de tool is gestart.") #logt het inputten van het evidence id
     return evidenceid #return evidenceid zodat dit gebruikt kan worden in andere functies
@@ -52,9 +50,6 @@ def detectos():
 
 def carve_input(): #creeër een def om de input voor het te carven bestand af te handelen
     cfilename = input("Voer alstublieft de locatie van uw image in. ") #vraag om de locatie van het carve bestand
-    if cfilename == "exit": #exit routine zoals hierboven
-        defaultlogger.logging.info("De tool werd voortijdig afgesloten.")
-        sys.exit()
     if os.path.isfile(cfilename): #controleer of de input ook daadwerkelijk een bestand is
         print("Je hebt de image " + cfilename + " gekozen. Voer Y in als dit klopt.") #vraag om bevestiging
         confirm_choice = str(input("")) #maak van de bevestiging een variabele zodat hier dingen mee gedaan kunnen worden
@@ -72,15 +67,9 @@ def carve_input(): #creeër een def om de input voor het te carven bestand af te
         
 def image_input_station(): #maak een def aan om het usb-station van de te imagen usb-stick in te voeren
     ifile = input(str("Voer alstublieft de locatie van de USB stick in. "))
-    if ifile == "exit":
-        defaultlogger.logging.info("De tool werd voortijdig afgesloten.")
-        sys.exit()
     return ifile
 
 
 def image_input_blocksize():
     bsize = input(str(("voer de blocksize in: ")))
-    if bsize == "exit":
-        defaultlogger.logging.info("De tool werd voortijdig afgesloten.")
-        sys.exit()
     return bsize
