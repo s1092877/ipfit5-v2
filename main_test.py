@@ -7,6 +7,7 @@ import os
 import ddimage
 import hashing_test_sha
 import foremostcarverlinux
+import sys
 
 try:
     ostype = toolinputs.detectos()
@@ -36,7 +37,7 @@ try:
     ifile = toolinputs.image_input_station()
     image = ddimage.imager(evidenceid,ifile)
     hashing_test_sha.hasher(ifile,image)
-    carve = foremostcarverlinux.carve()
+    carve = foremostcarverlinux.carve(evidenceid)
 
 except KeyboardInterrupt:
     defaultlogger.logging.info("De tool werd voortijdig afgesloten.")
