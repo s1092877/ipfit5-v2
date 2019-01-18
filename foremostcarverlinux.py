@@ -19,7 +19,7 @@ def carve(evidenceid):
     foremostapt()
     try:
         cfile = toolinputs.carve_input()
-        crv = subprocess.call(["foremost","-t","all","-o","output" + evidenceid, "-i",cfile])
+        crv = subprocess.call(["foremost","-t","all","-o","output " + evidenceid, "-i", "~/" + cfile])
         return crv
     except():
         print("Carven mislukt")
