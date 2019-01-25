@@ -29,6 +29,9 @@ try:
     if not os.path.exists("images"):  # controleer of logs directory al bestaat
         os.makedirs("images")  # maak indien nodig een directory aan voor logs
 
+    if not os.path.exists("compressions"):
+        os.makedirs("compressions")
+
     print("IPFIT5 tool")  # naam tool
     print("Maarten Liang & Danilo di Summa")  # naam groepsleden
     print("Deze tool kan op ieder moment afgesloten worden door middel van de toetsencombinatie ctrl + c.")
