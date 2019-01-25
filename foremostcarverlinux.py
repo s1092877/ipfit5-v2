@@ -19,7 +19,7 @@ def carve(evidenceid):
     foremostapt()
     try:
         cfile = toolinputs.carve_input()
-        crv = subprocess.call(["foremost","-t","all","-o","output " + evidenceid, "-i", "~/" + cfile])
+        crv = subprocess.call(["foremost","-t","all","-o","output" + evidenceid, "-i", cfile]) #je moet invullen images/imageX.raw
         return crv
     except():
         print("Carven mislukt")
