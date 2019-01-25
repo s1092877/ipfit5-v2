@@ -8,6 +8,7 @@ import ddimage
 import hashing_test_sha
 import foremostcarverlinux
 import sys
+import compression
 
 try:
     ostype = toolinputs.detectos()
@@ -29,8 +30,8 @@ try:
     if not os.path.exists("images"):  # controleer of logs directory al bestaat
         os.makedirs("images")  # maak indien nodig een directory aan voor logs
 
-    if not os.path.exists("compressions"):
-        os.makedirs("compressions")
+    if not os.path.exists("compressions/images"):
+        os.makedirs("compressions/images")
 
     print("IPFIT5 tool")  # naam tool
     print("Maarten Liang & Danilo di Summa")  # naam groepsleden
@@ -41,6 +42,7 @@ try:
     image = ddimage.imager(evidenceid,ifile)
     hashing_test_sha.hasher(ifile,image)
     carve = foremostcarverlinux.carve(evidenceid)
+    compression.compressie(image)
 
 except KeyboardInterrupt:
     defaultlogger.logging.info("De tool werd voortijdig afgesloten.")
