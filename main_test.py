@@ -50,9 +50,12 @@ try:
         carve = foremostcarverlinux.carve(evidenceid,image)
         compression.compressie(image)
         print("De tool is nu klaar met draaien.")
-        repeat = input("Druk op enter om de tool nogmaals uit te voeren. Druk op ctrl + c om de tool af te sluiten.")
+        repeat = input("Druk op enter om de tool nogmaals uit te voeren. Druk op ctrl + c of voer iets anders in om de tool af te sluiten.")
         if repeat == "":
             defaultlogger.logging.info("De tool werd nogmaals uitgevoerd.")
+        if repeat !="":
+            defaultlogger.logging.info("De tool werd afgesloten.")
+            break
 
 
 except KeyboardInterrupt:
