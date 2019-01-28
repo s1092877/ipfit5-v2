@@ -5,7 +5,7 @@ import defaultlogger
 import toolinputs
 import os
 import ddimage
-import hashing_test_sha
+import hasher_md5
 import foremostcarverlinux
 import sys
 import compression
@@ -36,11 +36,15 @@ try:
     print("IPFIT5 tool")  # naam tool
     print("Maarten Liang & Danilo di Summa")  # naam groepsleden
     print("Deze tool kan op ieder moment afgesloten worden door middel van de toetsencombinatie ctrl + c.")
-
     evidenceid = toolinputs.evidenceid_input()  # roept toolinputs aan om het evidence ID in te voeren
     ifile = toolinputs.image_input_station()
     image = ddimage.imager(evidenceid,ifile)
-    hashing_test_sha.hasher(ifile,image)
+    hash = hasher_md5.hasher(ifile, image)
+    if hash == True:
+        print('De hashes voor de USB en image komen niet overeen!')
+        print('Druk op enter als u het imaging-proces opnieuw wil uitvoeren. Voer iets anders in als u door wil gaan.')
+        if input("") == "":
+            image = ddimage.imager(evidenceid,ifile)
     carve = foremostcarverlinux.carve(evidenceid,image)
     compression.compressie(image)
 
