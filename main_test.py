@@ -36,17 +36,24 @@ try:
     print("IPFIT5 tool")  # naam tool
     print("Maarten Liang & Danilo di Summa")  # naam groepsleden
     print("Deze tool kan op ieder moment afgesloten worden door middel van de toetsencombinatie ctrl + c.")
-    evidenceid = toolinputs.evidenceid_input()  # roept toolinputs aan om het evidence ID in te voeren
-    ifile = toolinputs.image_input_station()
-    image = ddimage.imager(evidenceid,ifile)
-    hash = hasher_md5.hasher(ifile, image)
-    if hash == True:
-        print('De hashes voor de USB en image komen niet overeen!')
-        print('Druk op enter als u het imaging-proces opnieuw wil uitvoeren. Voer iets anders in als u door wil gaan.')
-        if input("") == "":
-            image = ddimage.imager(evidenceid,ifile)
-    carve = foremostcarverlinux.carve(evidenceid,image)
-    compression.compressie(image)
+
+    while True:
+        evidenceid = toolinputs.evidenceid_input()  # roept toolinputs aan om het evidence ID in te voeren
+        ifile = toolinputs.image_input_station()
+        image = ddimage.imager(evidenceid,ifile)
+        hash = hasher_md5.hasher(ifile, image)
+        if hash == False:
+            print('De hashes voor de USB en image komen niet overeen!')
+            print('Druk op enter als u het imaging-proces opnieuw wil uitvoeren. Voer iets anders in als u door wil gaan.')
+            if input("") == "":
+                image = ddimage.imager(evidenceid,ifile)
+        carve = foremostcarverlinux.carve(evidenceid,image)
+        compression.compressie(image)
+        print("De tool is nu klaar met draaien.")
+        repeat = input("Druk op enter om de tool nogmaals uit te voeren. Druk op ctrl + c om de tool af te sluiten.")
+        if repeat == "":
+            defaultlogger.logging.info("De tool werd nogmaals uitgevoerd.")
+
 
 except KeyboardInterrupt:
     defaultlogger.logging.info("De tool werd voortijdig afgesloten.")
