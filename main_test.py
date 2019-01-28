@@ -41,7 +41,7 @@ try:
     ifile = toolinputs.image_input_station()
     image = ddimage.imager(evidenceid,ifile)
     hashing_test_sha.hasher(ifile,image)
-    carve = foremostcarverlinux.carve(evidenceid)
+    carve = foremostcarverlinux.carve(evidenceid,image)
     compression.compressie(image)
 
 except KeyboardInterrupt:

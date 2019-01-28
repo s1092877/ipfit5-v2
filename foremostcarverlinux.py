@@ -15,11 +15,10 @@ def foremostapt():
         subprocess.call(["sudo", "apt-get", "update"])
         subprocess.call(["sudo", "apt-get", "install", "foremost"])
 
-def carve(evidenceid):
+def carve(evidenceid,image):
     foremostapt()
     try:
-        cfile = toolinputs.carve_input()
-        crv = subprocess.call(["foremost","-t","all","-o","output" + evidenceid, "-i", cfile]) #je moet invullen images/imageX.raw
+        crv = subprocess.call(["foremost","-t","all","-o","output" + evidenceid, "-i", image]) #je moet invullen images/imageX.raw
         return crv
     except():
         print("Carven mislukt")

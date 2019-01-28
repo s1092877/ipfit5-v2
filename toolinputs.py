@@ -66,7 +66,9 @@ def carve_input(): #creeër een def om de input voor het te carven bestand af te
         carve_input() #start opnieuw met de input als er geen geldig bestand is ingevoerd
         
 def image_input_station(): #maak een def aan om het usb-station van de te imagen usb-stick in te voeren
-    ifile = input(str("Voer alstublieft de locatie van de USB stick in. "))
+    ifile = input(str("Voer alstublieft de locatie van de USB stick in. Druk op enter als u het niet zeker weet. Als dit niet werkt, gebruik fdisk -l. "))
+    if ifile == "":
+        ifile = "/dev/sdb1"
     return ifile
 
 
